@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Json Training</title>
+</head>
+<body> 
+<!-- 	JSON - Javascript Object Notation --> 
+<!-- Not XML and is alot leaner
+JSON strings are wrapped in double quotes not single and not by without quotes like regular javascript for example, {"full_name" : "Jay Subia"} and not {full_name: "Jay Subia"} which would be acceptable in javascript.
+JSON consists of one of six data types: strings, numbers, objects, arrays, booleans or null.
+JSON has to be parsed into Javascript and can be done using JSON.parse() just put the JSON into a variable such as data and run it through the parse like so JSON.parse(data). You can use JSON.stringify which will turn the javascript object into a string.
+To access you can use dot.notation or bracket[notation]. -->
+
+<h2>Links</h2>
+
+<ol id="links"> <!-- for a for...in we will use an ul but for using arrays in objects we use ol -->
+
+</ol>
+
+<script>
+//  var info = {
+// "full_name" : "Ray Villalobos",
+// "title" : "Staff Author",
+// "links" : {//Notice that these are not [] if this is the case we have to use a for...in statement. Keep in mind a for...in statement does not keep things in order. In order to keep things in order we will need to use an array.
+//     "blog"     : "http://iviewsource.com",
+//     "facebook" : "http://facebook.com/iviewsource",
+//         "youtube"  : "http://www.youtube.com/planetoftheweb",
+//         "podcast"  : "http://feeds.feedburner.com/authoredcontent",
+//         "twitter"  : "http://twitter.com/planetoftheweb"
+//     }
+// };
+//   var output = "";
+
+// for ( key in info.links ) { //when we use a for...in the order is not always guaranteed
+//     if (info.links.hasOwnProperty(key)) {
+//         output += '<li>' +
+//         '<a href = "' + info.links[key] +
+//         '">' + key + '</a>' +
+//         '</li>';//the brackets are array like but it is not an array it is using the brackets to indicate that you want to get to the element that has the key that we are using.
+//     } //if the links has the key property
+// } // for...go through each link
+
+// var update = document.getElementById('links');
+// update.innerHTML = output;
+ 
+//in this example we are using an array and we have to create an array with objects.
+ var info = {
+"full_name" : "Ray Villalobos",
+"title" : "Staff Author",
+"links" : [
+    {"blog"     : "http://iviewsource.com"},
+    {"facebook" : "http://facebook.com/iviewsource"},
+    {"youtube"  : "http://www.youtube.com/planetoftheweb"},
+    {"podcast"  : "http://feeds.feedburner.com/authoredcontent"},
+    {"twitter"  : "http://twitter.com/planetoftheweb"}
+    ]
+};
+
+var output = '';
+
+for (var i = 0; i <= info.links.length; i++) {
+    for(key in info.links[i]){
+        if(info.links[i].hasOwnProperty(key)){
+            output += '<li>' + '<a href = "'+ info.links[i][key] + '">' + key + '</a>' + '</li>';
+        }//has own property check
+    }// for each object
+}//for each array element
+
+var update = document.getElementById('links');
+update.innerHTML = output;
+
+</script>
+
+<!-- info.full_name
+"Jay Subia"
+info.title
+"Staff Author"
+info.links[1].facebook
+"http://facebook.com/iviewsource"
+info.full_name = "Justin"
+"Justin"
+info.full_name
+"Justin"
+delete(info.title);
+true
+info.title
+undefined
+
+To delete from an array you need to use the splice method info.links.splice(1,1);
+
+If you use delete on an array it will delete however it will still register as if it still has the same number of indexes in the array splice fixes this.
+
+To put something in the array you have to use push such as:
+info.links.push({"courses":"www.espn.com"}); -->
+
+</body>
+</html>
